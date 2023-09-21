@@ -1268,25 +1268,9 @@ import streamlit as st
 import streamlit as st
 
 def main():
-    st.title("Gambar di Posisi Tertentu")
-    
-    # Menggunakan st.image untuk menampilkan gambar
     img = st.image('login2.png', use_column_width=True)
-    
-    # Menggunakan st.write untuk menambahkan teks atau elemen lain di sekitar gambar
-    st.write("Ini adalah gambar di posisi tengah.")
-    
-    # Anda juga dapat menyesuaikan posisi gambar dengan mengatur kolom dan baris
-    st.write("Anda dapat menyesuaikan posisi gambar dengan mengatur kolom dan baris:")
-    col, row = st.columns(2)
-    with col:
-        st.write("Kolom 1")
-    with col:
-        st.write("Kolom 2")
-    with row:
-        st.write("Baris 1")
-    with row:
-        st.write("Baris 2")
+    column_width = st.columns(2)[0].width
+    img.width = int(column_width / 2)
     st.title("Validator Synop Sederhana")
 
     # Dropdown untuk memilih jam
