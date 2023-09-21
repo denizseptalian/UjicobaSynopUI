@@ -1265,8 +1265,10 @@ def main_00UTC(synop_code):
 
 import streamlit as st
 
+import streamlit as st
+
 def main():
-    # Membuat dua kolom, satu untuk gambar dan satu untuk judul dan konten lainnya
+    # Membuat layout dengan dua kolom
     col1, col2 = st.beta_columns([1, 3])
 
     # Di kolom pertama (col1), letakkan gambar
@@ -1314,3 +1316,4 @@ def highlight_df(df):
 
 if __name__ == "__main__":
     main()
+
