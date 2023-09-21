@@ -1264,7 +1264,14 @@ def main_00UTC(synop_code):
     return df_seksi_0, df_seksi_1, df_seksi_3
 
 def main():
-    img = st.image('login2.png',use_column_width=True)
+    img = st.image('login2.png', use_column_width=True)
+    # Set the image's position using CSS
+    img.empty()
+    st.write(
+    f'<style>div.row-widget.stImage > div{'
+    f'position: absolute; top: 50px; left: 100px;'
+    f'}</style>',
+    unsafe_allow_html=True,)
     st.title("Validator Synop Sederhana")
 
     # Dropdown untuk memilih jam
