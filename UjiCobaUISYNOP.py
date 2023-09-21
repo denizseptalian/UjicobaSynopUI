@@ -1268,9 +1268,7 @@ import streamlit as st
 import streamlit as st
 
 def main():
-    img = st.image('login2.png', use_column_width=True)
-    column_width = st.columns(2)[0].width
-    img.width = int(column_width / 2)
+    img = st.image('login.png', use_column_width=True)
     st.title("Validator Synop Sederhana")
 
     # Dropdown untuk memilih jam
