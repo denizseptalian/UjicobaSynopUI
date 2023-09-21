@@ -1268,41 +1268,41 @@ import streamlit as st
 import streamlit as st
 
 def main():
-    # Membuat layout dengan dua kolom
-    col1, col2 = st.beta_columns([1, 3])
+    img = st.image('login2.png',use_column_width=True)
+    st.title("Validator Synop Sederhana")
 
-    # Di kolom pertama (col1), letakkan gambar
-    with col1:
-        img = st.image('login2.png', use_column_width=True)
+    # Dropdown untuk memilih jam
+    selected_hour = st.selectbox("Pilih Jam", ["--Pilih Jam--", "00.00", "01.00", "02.00"])  # Tambahkan jam-jam lain yang diinginkan
 
-    # Di kolom kedua (col2), letakkan judul dan konten lainnya
-    with col2:
-        st.title("Validator Synop Sederhana")
+    # Input teks dari pengguna
+    synop_code = st.text_input("Masukkan sandi synop")
 
-        # Dropdown untuk memilih jam
-        selected_hour = st.selectbox("Pilih Jam", ["--Pilih Jam--", "00.00", "01.00", "02.00"])  # Tambahkan jam-jam lain yang diinginkan
-
-        # Input teks dari pengguna
-        synop_code = st.text_input("Masukkan sandi synop")
-
-        # Tombol untuk memproses data
-        if st.button("Proses"):
-            # Menjalankan fungsi sesuai pilihan jam
-            if selected_hour == "00.00":
-                df_seksi_0, df_seksi_1, df_seksi_3 = main_00UTC(synop_code)
-            else:
-                st.error("Jam yang dipilih tidak valid")
+    # Tombol untuk memproses data
+    if st.button("Proses"):
+        # Menjalankan fungsi sesuai pilihan jam
+        if selected_hour == "00.00":
+            df_seksi_0, df_seksi_1, df_seksi_3 = main_00UTC(synop_code)
+        #elif selected_hour == "01.00":
+            #df = main_01UTC(synop_code)
+        #elif selected_hour == "02.00":
+            #df = main_02UTC(synop_code)
+        else:
+            st.error("Jam yang dipilih tidak valid")
 
             # Menampilkan DataFrame jika ada
-            if 'df_seksi_0' in locals():
-                st.markdown("<h2>Seksi 0</h2>", unsafe_allow_html=True)
-                st.dataframe(highlight_df(df_seksi_0), height=300, width=700)
-            if 'df_seksi_1' in locals():
-                st.markdown("<h2>Seksi 1</h2>", unsafe_allow_html=True)
-                st.dataframe(highlight_df(df_seksi_1), height=450, width=700)
-            if 'df_seksi_3' in locals():
-                st.markdown("<h2>Seksi 3</h2>", unsafe_allow_html=True)
-                st.dataframe(highlight_df(df_seksi_3), height=500, width=700)
+        #if 'df' in locals():
+            #st.dataframe(df, height=1100, width=2000)
+
+        # Menampilkan DataFrame jika ada
+        if 'df_seksi_0' in locals():
+            st.markdown("<h2>Seksi 0</h2>", unsafe_allow_html=True)
+            st.dataframe(highlight_df(df_seksi_0), height=300, width=700)
+        if 'df_seksi_1' in locals():
+            st.markdown("<h2>Seksi 1</h2>", unsafe_allow_html=True)
+            st.dataframe(highlight_df(df_seksi_1), height=450, width=700)
+        if 'df_seksi_3' in locals():
+            st.markdown("<h2>Seksi 3</h2>", unsafe_allow_html=True)
+            st.dataframe(highlight_df(df_seksi_3), height=500, width=700)
 
 def highlight_df(df):
     def highlight(row):
@@ -1314,6 +1314,5 @@ def highlight_df(df):
 
     return df.style.apply(highlight, axis=1)
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
-
