@@ -1268,7 +1268,7 @@ import streamlit as st
 import streamlit as st
 
 def main():
-    img = st.image('login.png')
+    img = st.image('login.png', width=300)
     st.title("Validator Synop Sederhana")
 
     # Dropdown untuk memilih jam
@@ -1309,7 +1309,7 @@ def highlight_df(df):
         # Menggunakan warna kuning untuk baris dengan nilai pada kolom output
         # Ganti 'output_column_name' dengan nama kolom output yang relevan
         if row['Output'] != "":
-            return ['background-color: yellow'] * len(row)
+            return ['background-color: red'] * len(row)
         return [''] * len(row)
 
     return df.style.apply(highlight, axis=1)
