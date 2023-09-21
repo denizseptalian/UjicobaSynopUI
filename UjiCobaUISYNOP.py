@@ -1268,13 +1268,7 @@ import streamlit as st
 import streamlit as st
 
 def main():
-    img = st.image('login.png', width=300)
-    # Mendapatkan lebar halaman
-    page_width = st.get_option("theme.page_width")
-    
-    # Mengatur CSS untuk gambar agar berada di tengah
-    img.image_container.style.width = f"{page_width}px"
-    img.container.style.text_align = "center"
+    img = st.image('login.png', width=300 , use_container_width=True)
     
     st.title("Validator Synop Sederhana")
 
