@@ -1270,14 +1270,6 @@ import streamlit as st
 def main():
     st.set_page_config(layout="wide")
     img = st.image('login.png', width=180)
-    import streamlit as st
-    from datetime import datetime
-    # Mendapatkan waktu saat ini
-    now = datetime.now()
-    current_time = now.strftime("%H:%M:%S")
-    # Menampilkan jam di aplikasi Streamlit
-    st.write(f"Jam saat ini adalah: {current_time}")
-
     st.title("SYNOP Validator Code")
 
     # Dropdown untuk memilih jam
