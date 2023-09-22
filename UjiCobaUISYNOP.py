@@ -1268,6 +1268,7 @@ import streamlit as st
 import streamlit as st
 
 def main():
+    st.set_page_config(layout="wide")
     st.title("Validator Synop Sederhana")
 
     # Dropdown untuk memilih jam
