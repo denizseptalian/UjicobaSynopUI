@@ -1276,8 +1276,7 @@ def main():
     now = datetime.now()
     current_time = now.strftime("%H:%M:%S")
     # Menampilkan jam di aplikasi Streamlit
-    
-st.write(f"Jam saat ini adalah: {current_time}")
+    st.write(f"Jam saat ini adalah: {current_time}")
 
     st.title("SYNOP Validator Code")
 
