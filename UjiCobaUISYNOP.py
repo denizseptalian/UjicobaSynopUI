@@ -1269,8 +1269,8 @@ import streamlit as st
 
 def main():
     st.set_page_config(layout="wide")
-    img = st.image('login.png', width=120)
-    st.title("Validator Synop Sederhana")
+    img = st.image('login.png', width=150)
+    st.title("SYNOP Validator Code")
 
     # Dropdown untuk memilih jam
     selected_hour = st.selectbox("Pilih Jam", ["--Pilih Jam--", "00.00", "01.00", "02.00"])  # Tambahkan jam-jam lain yang diinginkan
