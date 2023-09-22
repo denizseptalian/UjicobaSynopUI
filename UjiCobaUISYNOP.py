@@ -1269,7 +1269,8 @@ import streamlit as st
 
 def main():
     st.set_page_config(layout="wide")
-    img = st.image('login.png', width=150)
+    # Menampilkan gambar dengan margin yang telah dihitung
+    st.image('login.png', width=150, output_format='auto', use_container_width=True)
     st.title("SYNOP Validator Code")
 
     # Dropdown untuk memilih jam
