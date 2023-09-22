@@ -1269,7 +1269,11 @@ import streamlit as st
 
 def main():
     st.set_page_config(layout="wide")
-    img = st.image('login.png', width=180)
+    width = 150
+    page_width = st.page_config.get_page_width()
+    margin_left = (page_width - width) / 2
+    st.image('login.png', width=width, output_format='auto', use_container_width=True)
+
     st.title("SYNOP Validator Code")
 
     # Dropdown untuk memilih jam
