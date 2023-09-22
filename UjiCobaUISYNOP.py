@@ -1273,7 +1273,7 @@ def main():
     st.title("SYNOP Validator Code")
 
     # Dropdown untuk memilih jam
-    selected_hour = st.selectbox("Pilih Jam", ["--Pilih Jam--", "00.00", "01.00", "02.00"])  # Tambahkan jam-jam lain yang diinginkan
+    selected_hour = st.selectbox("Pilih Jam", ["--Pilih Jam--", "00.00", "03.00", "06.00", "09.00"])  # Tambahkan jam-jam lain yang diinginkan
 
     # Input teks dari pengguna
     synop_code = st.text_input("Masukkan sandi synop")
