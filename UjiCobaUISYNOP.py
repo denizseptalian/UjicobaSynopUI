@@ -1262,6 +1262,10 @@ def main_00UTC(synop_code):
     df_seksi_3 = create_dataframe(results_seksi_3)
 
     return df_seksi_0, df_seksi_1, df_seksi_3
+
+import turtle
+import time
+from datetime import datetime
 def draw_digit(digit, x, y):
     pen.penup()
     pen.goto(x, y)
@@ -1304,9 +1308,6 @@ st.write("")
 st.image(screen.getcanvas().postscript(file='-', colormode='color'), use_container_width=True, format="PNG")
 
 import streamlit as st
-import turtle
-import time
-from datetime import datetime
 import streamlit as st
 
 def main():
