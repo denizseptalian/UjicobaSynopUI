@@ -1262,12 +1262,55 @@ def main_00UTC(synop_code):
     df_seksi_3 = create_dataframe(results_seksi_3)
 
     return df_seksi_0, df_seksi_1, df_seksi_3
+def draw_digit(digit, x, y):
+    pen.penup()
+    pen.goto(x, y)
+    pen.pendown()
+    pen.write(digit, align="center", font=("Arial", 24, "normal"))
+    pen.penup()
+
+# Fungsi untuk mengupdate waktu dan menggambar angka-angka jam
+def update_time():
+    current_time = datetime.utcnow()
+    hours = current_time.hour
+    minutes = current_time.minute
+    seconds = current_time.second
+
+    # Menghapus tampilan jam sebelumnya
+    pen.clear()
+
+    # Menggambar angka-angka jam digital
+    draw_digit(f"{hours:02d}:{minutes:02d}:{seconds:02d}", 0, 0)
+
+    # Menjadwalkan pembaruan setiap 1000ms (1 detik)
+    screen.ontimer(update_time, 1000)
+
+# Membuat pena turtle
+pen = turtle.Turtle()
+pen.speed(0)  # Mengatur kecepatan pena turtle
+
+# Memanggil fungsi pertama kali
+update_time()
+
+# Menggunakan Streamlit
+st.title("Jam Digital UTC")
+st.write("Aplikasi Jam Digital UTC menggunakan Streamlit")
+st.write("Waktu diambil dari waktu UTC aktual.")
+
+# Menambahkan space kosong
+st.write("")
+
+# Menampilkan jam di dalam aplikasi Streamlit
+st.image(screen.getcanvas().postscript(file='-', colormode='color'), use_container_width=True, format="PNG")
 
 import streamlit as st
-
+import turtle
+import time
+from datetime import datetime
 import streamlit as st
 
 def main():
+    
     st.set_page_config(layout="wide")
     img = st.image('login.png', width=180)
     st.title("SYNOP Validator Code")
